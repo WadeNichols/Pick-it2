@@ -14,11 +14,11 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/api/tabs", require("./routes/tabs"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/tabs"),
+  process.env.MONGODB_URI || "mongodb://heroku_p47s5rhz:k9g2et38m2kl9cr1ti16gs2bfk@ds031581.mlab.com:31581/heroku_p47s5rhz"),
   // process.env.MONGODB_URI,
   { useNewUrlParser: true },
-  () => console.log(`Connected to MongoDB`)
-);
+  () => console.log(`Connected to MongoDB`);
+  
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
